@@ -1,0 +1,158 @@
+/* CategoryPage.css */
+
+.category-page {
+  padding: 24px;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  margin-top: 30px;
+}
+
+.category-page h1 {
+  font-size: 25px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+.movie-card.skeleton {
+  background: #333;
+  height: 250px;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Responsive grid: 5 cards on large screen, fewer on smaller screens */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Each card ~200px wide */
+  gap: 20px;
+}
+
+/* Individual movie card */
+.movie-card {
+  background-color: #141414;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Poster image */
+.movie-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+/* Movie title */
+.movie-card p {
+  padding: 12px;
+  font-size: 14px;
+  color: #fff;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* No image fallback */
+.movie-card .no-image {
+  width: 100%;
+  height: 270px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  border-bottom: 1px solid #444;
+}
+
+/* Tablet adjustments */
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .category-page h1 {
+    font-size: 28px;
+  }
+
+  .movie-card img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* Large Mobile Phones (iPhone Pro Max, Samsung Ultra, etc.) */
+@media (min-width: 430px) and (max-width: 767px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr); /* Show 3 cards */
+  }
+
+  .category-page {
+    padding: 16px;
+  }
+
+  .category-page h1 {
+    font-size: 24px;
+  }
+
+  .movie-card img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .movie-card p {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 429px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, 1fr); /* Show 2 cards */
+  }
+
+  .category-page {
+    padding: 16px;
+  }
+
+  .category-page h1 {
+    font-size: 22px;
+  }
+
+  .movie-card img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .movie-card p {
+    font-size: 12px;
+    padding: 10px;
+  }
+}

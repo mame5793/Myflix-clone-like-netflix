@@ -1,0 +1,483 @@
+/* ========================
+   Movie Detail Page
+   ======================== */
+.movie-detail-page {
+  color: white;
+  min-height: 100vh;
+  padding-top: 70px; /* adjust for navbar */
+  font-family: 'Arial', sans-serif;
+  background-color: #111;
+  padding-left: 2vw;
+  padding-right: 2vh;
+}
+.poster{
+  display: flex;
+}
+/* --- Detail Header --- */
+.detail-header {
+  position: relative;
+  width: 100%;
+  height: auto;          /* instead of 90vh */
+  min-height: 70vh;      /* keep some height */
+  padding: 7vh 2vw;   
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.detail-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.detail-header-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+}
+
+.detail-title {
+
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* scales with viewport */
+  font-weight: bold;
+  margin-bottom: .5rem;
+}
+
+.action-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+  background: white;
+  color: black;
+}
+.action-icons-row{
+  display: flex;
+  gap: 10px;
+}
+
+.play-button {
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 0rem 3rem;
+  height: 35px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.play-button:hover {
+  background-color: #ff2a2a;
+  color: white;
+}
+
+/* --- Detail Content --- */
+.detail-content {
+  display: flex;
+  gap: 2rem;
+  padding: 0rem;
+  margin-top: 10px;
+  position: relative;
+  z-index: 20;
+}
+
+.detail-poster-container {
+  flex-shrink: 0;
+ width: 20vw;           /* relative to viewport */
+  max-width: 300px;      /* prevent it from being too large */
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.detail-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-info {
+  flex-grow: 1;
+}
+
+.rating-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.star-icon {
+  color: gold;
+}
+
+.detail-tagline {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.detail-overview {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.detail-meta p {
+  margin: 0.5rem 0;
+}
+
+/* ========================
+   Skeleton Loader
+   ======================== */
+.movie-detail-page-skeleton {
+  padding-top: 60px;
+}
+
+.detail-header-skeleton {
+  width: 100%;
+  height: 70vh;
+  background-color: #222;
+  animation: pulse 1.5s infinite;
+}
+
+.detail-content-skeleton {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  margin-top: -100px;
+  position: relative;
+  z-index: 20;
+}
+
+.detail-poster-skeleton {
+  width: 300px;
+  height: 450px;
+  background-color: #222;
+  border-radius: 10px;
+  animation: pulse 1.5s infinite;
+}
+
+.detail-info-skeleton {
+  flex-grow: 1;
+}
+
+.skeleton-line-title {
+  height: 40px;
+  width: 70%;
+  background-color: #222;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-line-text {
+  height: 20px;
+  width: 90%;
+  background-color: #222;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* ========================
+   Video Modal
+   ======================== */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.player-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Close Button - fully mobile friendly */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(255,255,255,0.8);
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .video-modal-content {
+    width: 80%;
+  }
+  .close-button {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* ========================
+   Responsive Styles
+   ======================== */
+/* Keep your original CSS as-is ... */
+
+/* ========================
+   Responsive Fixes (ONLY)
+   ======================== */
+/* Keep your original CSS for desktop as-is ... */
+
+/* ========================
+   Tablet (scale down only)
+   ======================== */
+@media (max-width: 1024px) {
+  .poster {
+    flex-direction: column;
+  }
+  .detail-poster-container {
+    width: 250px;
+    height: auto;
+    align-self: center;
+  }
+  .detail-header-content h1 {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+  }
+  .detail-overview {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .detail-header {
+    height: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detail-content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    gap: 1rem;
+  }
+
+  .detail-poster-container {
+    width: 220px;
+    height: 330px;
+    margin-bottom: 1rem;
+  }
+
+  .detail-title {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .rating-info {
+    justify-content: center;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+
+  .action-icons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .play-button {
+    width: 90% !important;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 20px;
+  }
+
+  .action-icons-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .action-icons-row .icon-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .icon-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .action-icons .icon-button:nth-child(2),
+  .action-icons .icon-button:nth-child(3) {
+    display: inline-flex;
+    margin: 0 0.5rem;
+  }
+
+  .action-icons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .action-icons-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .detail-info {
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .detail-header {
+    background: none !important;
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .detail-header .overlay {
+    display: none;
+  }
+
+  body, html, .movie-detail-page {
+    overflow-x: hidden;
+  }
+
+  .detail-content, .detail-info, .poster {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .detail-poster-container {
+    max-width: 90%;
+    height: auto;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+}
+
+/* Extra small mobile (optional) */
+@media (max-width: 480px) {
+  .play-button {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .detail-title {
+    font-size: 1.4rem;
+  }
+
+  .detail-overview {
+    font-size: 0.85rem;
+  }
+
+  .detail-poster-container {
+    width: 180px;
+    height: 270px;
+  }
+
+  .icon-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

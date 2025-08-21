@@ -1,0 +1,293 @@
+/* ==== Base Titlecard Layout ==== */
+.titlecard {
+  margin-top: 50px;
+  margin-bottom: 5px;
+  overflow-x: hidden;
+}
+
+.titlecard h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #e5e5e5;
+}
+
+/* ==== Horizontal Scroll Container ==== */
+.scroll-wrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.card-list {
+  padding: 0;
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+.card-list::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari */
+}
+
+/* ==== Card Component ==== */
+.card {
+  flex: 0 0 auto;
+  width: 193px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
+.card img {
+  height: 85%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.card p {
+  height: 15%;
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #ccc;
+  text-align: center;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==== Scroll Buttons ==== */
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-button.left {
+  left: 7px;
+}
+
+.scroll-button.right {
+  right: 7px;
+}
+
+/* ==== View All Card ==== */
+.view-all-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  border: 2px solid #555;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.view-all-card:hover {
+  background-color: #1a1919;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.view-all-content {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.card-list {
+  /* Add these properties to center the loader */
+  position: relative;
+  min-height: 250px; /* Give it a height so the loader can be centered */
+  display: flex;
+  align-items: center; /* Vertically center */
+}
+
+.loading-dots {
+  /* Center the spinner horizontally in the container */
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loading-dots div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: loading-dots 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.loading-dots div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.loading-dots div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.loading-dots div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes loading-dots {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+/* Add to your Tittlecard.css file */
+.error-message,
+.empty-message {
+  width: 100%;
+  text-align: center;
+  color: #aaa; /* A muted color */
+  font-size: 1.2rem;
+}
+/* ==== Responsive Breakpoints ==== */
+
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .titlecard h2 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+
+  .card {
+    width: 200px;
+    height: 320px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+  }
+
+  .scroll-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Small Tablet / Mobile Landscape (≤768px) */
+@media (max-width: 768px) {
+  .titlecard {
+    margin-top: 30px;
+    padding: 0 1rem;
+  }
+
+  .titlecard h2 {
+    font-size: 1.2rem;
+  }
+
+  .card {
+    width: 160px;
+    height: 300px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .scroll-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Portrait (≤480px) */
+/* Mobile Portrait: max-width 480px = Show 2 cards cleanly */
+@media (max-width: 480px) {
+  .card-list {
+    scroll-snap-type: x mandatory;
+  }
+
+  .card {
+    width: 45vw;               /* 2 cards = 90vw, with 10vw for gap */
+    height: 260px;
+    scroll-snap-align: start;
+  }
+
+  .card img {
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+    height: 20%;
+  }
+
+  .scroll-button {
+    display: none; /* Optional: hide buttons on touch/mobile */
+  }
+}
+
+/* Smaller Phones (max-width 360px): Show 1 full card */
+@media (max-width: 360px) {
+  .card {
+    width: 90vw;
+    height: 240px;
+  }
+
+  .card p {
+    font-size: 0.75rem;
+  }
+}
+

@@ -1,0 +1,115 @@
+.auth {
+  height: 100vh;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)),
+    url('stock-photo-multiple-screen-movie-streaming-in-speed-2544260579.jpg') no-repeat center center/cover;
+    display: flex;
+  flex-direction: column; /* Stack vertically */
+  position: relative;
+  padding: 30px;
+
+}
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: #e50914;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px black;
+  z-index: 10;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.auth-container {
+  margin: auto; /* Centers form in the remaining space */
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 8px;
+  color: white;
+}
+
+.auth-container h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form input {
+  background: #333;
+  border: none;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.auth-form input::placeholder {
+  color: #bbb;
+}
+
+.auth-form button {
+  background-color: #e50914;
+  color: white;
+  padding: 14px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #f40612;
+}
+
+.auth-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #b3b3b3;
+}
+
+.auth-options a {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+
+.auth-options a:hover {
+  text-decoration: underline;
+}
+
+.auth-toggle {
+  margin-top: 24px;
+  font-size: 1rem;
+}
+
+.auth-toggle span {
+  color: #f90707;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-toggle span:hover {
+  text-decoration: underline;
+}
+
+.disclaimer {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
