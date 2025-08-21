@@ -1,16 +1,43 @@
-<<<<<<< HEAD
-# React + Vite
+# Myflix - Netflix Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Netflix clone built with **React**, **Vite**, and **Firebase** for authentication.  
+This project replicates the UI/UX of Netflix, including movie browsing, search, and user login functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive Design**: Works on mobile, tablet, and desktop.  
+- **Authentication**: Sign in/sign up using Firebase.  
+- **Movie Browsing**: Browse movies by category.  
+- **Movie Details**: View detailed information about each movie.  
+- **Search Functionality**: Search for movies.  
+- **Interactive UI**: Smooth transitions, hover effects, and dynamic content display.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Myflix-clone-like-netflix
->>>>>>> a89a975025027f32f8853143b2dd9527b9ac5e49
+- **React** – Frontend library for building UI.  
+- **Vite** – Fast development server and build tool.  
+- **Firebase** – Authentication and database.  
+- **CSS & Flexbox/Grid** – Styling and responsive layouts.  
+- **ESLint** – Linting for cleaner code.
+
+## Installation
+
+1. Clone the repository:  
+```bash
+git clone https://github.com/mame5793/Myflix-clone-like-netflix.git
+Navigate to the project folder:
+
+cd "Netflix clone"
+
+
+Install dependencies:
+
+npm install
+
+
+Start the development server:
+
+npm run dev
+
+
+Open your browser at http://localhost:5173/
